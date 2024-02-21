@@ -37,7 +37,7 @@ app.get('/players/', async (request, response) => {
 app.post('/players/', async (request, response) => {
   const playerDetails = request.body
   const {player_id, player_name, jersey_number, role} = playerDetails
-  const addPlayerQuery = `INSERT INTO cricket_team{player_name, jersey_number, role} VALUES ('${player_name}',${jersey_number},'${role}') ORDER BY ${player_id};`
+  const addPlayerQuery = `INSERT INTO cricket_team (player_name, jersey_number, role) VALUES ('${player_name}',${jersey_number},'${role}') ORDER BY ${player_id};`
   const dbResponse = await db.run(addPlayerQuery)
   response.send('Player Added to Team')
 })
