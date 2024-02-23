@@ -45,7 +45,7 @@ app.post('/players/', async (request, response) => {
 app.get('/players/:playerId/', async (request, response) => {
   const {playerId} = request.params
   const playerDetails = `SELECT * FROM cricket_team WHERE player_id = '${playerId} ORDER BY player_id ASC;`
-  const playersByASCOrder = await db.all(playerDetails)
+  const playersByASCOrder = await db.get(playerDetails)
   response.send(playersByASCOrder)
 })
 
